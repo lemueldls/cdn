@@ -11,10 +11,7 @@ export default defineNuxtConfig({
 
   // Env variables - https://nuxt.com/docs/getting-started/configuration#environment-variables-and-private-tokens
   runtimeConfig: {
-    public: {
-      // Can be overridden by NUXT_PUBLIC_HELLO_TEXT environment variable
-      helloText: "Hello from the Edge 👋",
-    },
+    public: {},
   },
   // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
   future: { compatibilityVersion: 4 },
@@ -28,7 +25,10 @@ export default defineNuxtConfig({
   // Development config
   eslint: {
     config: {
-      stylistic: { quotes: "double" },
+      stylistic: {
+        semi: true,
+        quotes: "double",
+      },
     },
   },
-})
+});
