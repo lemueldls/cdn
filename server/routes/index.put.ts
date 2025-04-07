@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
     put: { addRandomSuffix: true },
   })
 
-  const url = getRequestURL(event).toString()
+  const url = getRequestURL(event)
 
   return blobs.map(blob => new URL(`/blob/${blob.pathname}`, url).toString()).join("\n")
 })
