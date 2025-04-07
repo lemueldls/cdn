@@ -6,5 +6,5 @@ export default defineEventHandler(async (event) => {
 
   const url = getRequestURL(event)
 
-  return blobs.map(blob => new URL(`/blob/${blob.pathname}`, url).toString()).join("\n")
+  return blobs.map(blob => new URL(`/blob/${blob.pathname}`, url).toString()).join("\n") + "\n"
 })
