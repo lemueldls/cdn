@@ -1,10 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // https://nuxt.com/modules
-  modules: [
-    "@nuxthub/core",
-    "@nuxt/eslint",
-  ],
+  modules: ["@nuxthub/core", "@nuxt/eslint"],
 
   // https://devtools.nuxt.com
   devtools: { enabled: true },
@@ -13,13 +10,24 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {},
   },
-  // https://nuxt.com/docs/getting-started/upgrade#testing-nuxt-4
-  future: { compatibilityVersion: 4 },
-  compatibilityDate: "2025-03-01",
+
+  compatibilityDate: "2026-01-01",
+
+  nitro: {
+    preset: "cloudflare-module",
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+    },
+  },
 
   // https://hub.nuxt.com/docs/getting-started/installation#options
   hub: {
-    blob: true,
+    blob: {
+      driver: "cloudflare-r2",
+      binding: "BLOB",
+      bucketName: "cdn",
+    },
   },
 
   // Development config

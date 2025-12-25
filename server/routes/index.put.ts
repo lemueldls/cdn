@@ -1,12 +1,14 @@
 export default defineEventHandler(async (event) => {
-  const blobs = await hubBlob().handleUpload(event, {
+  const files = await blob.handleUpload(event, {
     formKey: "file",
     put: { addRandomSuffix: true },
   });
 
   const url = getRequestURL(event);
 
-  return blobs
-    .map(blob => new URL(`/blob/${blob.pathname}`, url).toString())
-    .join("\n") + "\n";
+  return (
+    files
+      .map((file) => new URL(`/blob/${file.pathname}`, url).toString())
+      .join("\n") + "\n"
+  );
 });
