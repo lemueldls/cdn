@@ -11,13 +11,14 @@ export default defineNuxtConfig({
     public: {},
   },
 
-  compatibilityDate: "2026-01-01",
+  compatibilityDate: "2025-12-25",
 
   nitro: {
     preset: "cloudflare-module",
     cloudflare: {
       deployConfig: true,
       nodeCompat: true,
+      wrangler: { name: "cdn" },
     },
   },
 
